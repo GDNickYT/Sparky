@@ -1,9 +1,11 @@
 import speech_recognition as sr
 import time
 import webbrowser
+import random
 r = sr.Recognizer()
+hello_replies = ["Hello!","Hi!","Greetings!","Hello! Nice to meet you today!"]
 print("Sparky")
-print("Running version 1.1.0-alpha")
+print("Running version 1.2.0-alpha")
 with sr.Microphone() as source:
     while True:
         r.adjust_for_ambient_noise(source,duration=1.9)
@@ -15,7 +17,7 @@ with sr.Microphone() as source:
             print(data)
             if data == "hello" or data == "hi" or data == "greetings":
                 print("You said: " + data)
-                print("Hello!")
+                print(random.choice(hello_replies))
                 print("Press ENTER to continue.")
                 input()
             elif data == "what's your name" or data == "what is your name":
@@ -41,9 +43,21 @@ with sr.Microphone() as source:
                 input()
             elif data == "info" or data == "data":
                 print("Sparky")
-                print("Running version 1.1.0-alpha")
+                print("Running version 1.2.0-alpha")
                 print("Press ENTER to continue.")
                 input()
+            elif data == "open Roblox" or data == "let's play Roblox":
+                webbrowser.open("www.roblox.com", new=0, autoraise=True)
+                input()
+            elif data == "open Discord":
+                webbrowser.open("www.discord.com/app", new=0, autoraise=True)
+                input()
+            elif data == "how are you":
+                print("I'm fine. Thanks.")
+                print("Press ENTER to continue.")
+                input()
+            elif data == "I want to play Geometry Dash":
+                 webbrowser.open("discord.gg/UymMG2w9CK", new=0, autoraise=True)
             else:
                 print("Sorry,I dont know how to reply to that.")
                 print("Press ENTER to continue")
